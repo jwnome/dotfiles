@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Notesnook
+Comment=Privacy-focused note taking app
+Exec=/home/jwno/.local/share/appimages/notesnook_linux_x86_64.AppImage
+Icon=/home/jwno/Pictures/Logos/notesnook.png
+Terminal=false
+Type=Application
+Categories=Office;Utility;
