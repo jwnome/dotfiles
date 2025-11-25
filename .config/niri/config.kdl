@@ -293,7 +293,7 @@ spawn-sh-at-startup "sleep 1.0 && nm-applet"
 // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
 
 overview {
-   zoom 0.65 
+   zoom 0.75 
 }
 
 hotkey-overlay {
