@@ -25,19 +25,14 @@ fi
 export PATH="$HOME/.local/bin:$PATH"
 
 # Environment variables
-export EDITOR="nvim"
-export VISUAL="nvim"
+export EDITOR="vim"
+export VISUAL="vim"
 
 # Common aliases
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 alias ll='ls -al'
-alias shutdown='sudo shutdown now'
-alias reboot='sudo reboot now'
-alias wifi-list='nmcli device wifi list'
-alias wifi-connect='sudo nmcli device wifi connect'
-alias wifi-down='sudo nmcli connection down'
 
 # User-specific functions (only for regular user, not root)
 if [[ $EUID -ne 0 ]]; then
@@ -45,7 +40,7 @@ if [[ $EUID -ne 0 ]]; then
     update_root() {
         echo "Updating both user and root .zshrc files..."
         sudo cp ~/.zshrc /root/.zshrc
-        sudo cp -r ~/.config/nvim /root/.config/
+        sudo cp ~/.vimrc /root/.vimrc
         echo "✓ Root updated"
         echo "Note: Changes will take effect on next shell session or after 'source ~/.zshrc'"
     }
@@ -77,12 +72,6 @@ setopt SHARE_HISTORY
 setopt HIST_IGNORE_DUPS
 setopt HIST_IGNORE_SPACE
 
-if command -v tmux &> /dev/null && [ -z "$TMUX" ] && [[ -n "$DISPLAY" || "$XDG_SESSION_TYPE" == "wayland" ]]; then
-    exec tmux new-session -A -s main
-fi
-
-# Display configuration and conditional fastfetch
-fbset -g 2880 1800 2880 1800 32 2>/dev/null
 clear
 
 # ZSH-Autosuggestions
