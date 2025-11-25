@@ -1,0 +1,79 @@
+{
+    "layer": "top",
+    "position": "top",
+    "output": "eDP-1",
+    "height": 35,
+
+    "modules-left": ["tray", "custom/window-count", "niri/window"],
+    "modules-center": ["clock"],
+    "modules-right": ["memory", "battery", "custom/battery-health"],
+
+    // Modules in left-to-right order
+
+
+    "tray": {
+        "reverse-direction": true,
+        "spacing": 10
+    },
+
+    "custom/window-count": {
+        "exec": "~/.config/waybar/scripts/window-count.sh",
+        "interval": 1,
+        "format": "{}",
+        "tooltip": false,
+        "markup": true
+    },
+
+    "niri/window": {
+        "format": "{app_id}"
+    },
+
+    "clock": {
+        "format": "{:%H:%M}",
+        "format-alt": "{:%Y-%m-%d %H:%M:%S}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+    },
+
+    "memory": {
+        "interval": 10,
+        "states": {
+            "warning": 51,
+            "critical": 76
+        },
+        "format": "<span color='#ffffff'>{percentage}%</span> ",
+        "tooltip-format": "RAM: {percentage}%\nUsed: {used:0.2f}G\nAvailable: {avail:0.2f}G",
+        "spacing": 5
+    },
+
+    "pulseaudio": {
+        "format": "{icon} <span color='#ffffff'>{volume}%</span>",
+        "format-bluetooth": "<span color='#ffffff'>{volume}%</span> {icon}",
+        "format-muted": " ",        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", ""]        },
+        "on-click": "pavucontrol"
+    },
+
+    "custom/battery-health": {
+        "exec": "~/.config/waybar/scripts/battery-health.sh",
+        "interval": "once",
+        "format": "{}",
+        "tooltip": false,
+        "spacing": 5
+    },
+
+    "battery": {
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon} <span color='#ffffff'>{capacity}%</span>",
+        "format-charging": " <span color='#ffffff'>{capacity}%</span>",
+        "format-plugged": " <span color='#ffffff'>{capacity}%</span>",
+        "format-icons": ["", "", "", ""]    }
+}
