@@ -100,21 +100,25 @@ output "eDP-1" {
     // normal, 90, 180, 270, flipped, flipped-90, flipped-180 and flipped-270.
     transform "normal"
     position x=0 y=1440
-    background-color "#000000"
-
+    focus-at-startup
     // hot-corners {
     //     off
     // }
+    layout {
+        background-color "#000000"
+    }
 }
 output "DP-1" {
     mode "2560x1440@59.951"
     scale 1
     position x=0 y=0
-    background-color "#000000"
     // hot-corners {
     //     // off
     //     top-left
     // }
+    layout {
+        background-color "#000000"
+    }
 }
 
 // Settings that influence how windows are positioned and sized.
@@ -281,19 +285,20 @@ cursor {
 // which may be more convenient to use.
 // See the binds section below for more spawn examples.
 
-spawn-at-startup "waybar"
+spawn-sh-at-startup "sleep 1.0 && waybar"
 spawn-at-startup "mako &"
 spawn-at-startup "swww-daemon"
+spawn-sh-at-startup "swww img ~/Pictures/Wallpapers/wallpaper-debian.png --transition-type simple --transition-duration 2"
 spawn-at-startup "swaybg" "-i" "/home/jwno/Pictures/Wallpapers/wallpaper-blur.png"
 spawn-at-startup "blueman-applet"
-spawn-sh-at-startup "sleep 0.5 && pasystray"
+spawn-at-startup "xwayland-satellite"
 spawn-sh-at-startup "sleep 1.0 && nm-applet"
 
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
 // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
 
 overview {
-   zoom 0.75 
+   zoom 0.75
 }
 
 hotkey-overlay {
@@ -617,7 +622,7 @@ binds {
     //
     // The allow-inhibiting=false property can be applied to other binds as well,
     // which ensures niri always processes them, even when an inhibitor is active.
-    Mod+Escape { spawn "systemctl" "poweroff"; }
+    Mod+Escape { spawn "sh" "-c" "$HOME/.config/niri/shutdown.sh"; }
 
     // The quit action will show a confirmation dialog to avoid accidental exits.
     Mod+Shift+E { quit skip-confirmation=true; }
