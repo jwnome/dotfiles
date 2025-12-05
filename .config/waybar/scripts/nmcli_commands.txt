@@ -1,0 +1,8 @@
+nmcli device wifi rescan
+nmcli device wifi list
+nmcli device wifi connect "SSID_NAME" password "your_password"
+nmcli device wifi connect "SSID_NAME"
+nmcli device status
+nmcli connection show --active
+nmcli device disconnect <interface>
+nmcli connection delete SSID

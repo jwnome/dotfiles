@@ -1,0 +1,94 @@
+* {
+    border: none;
+    border-radius: 0;
+    font-family: Hack;
+    font-size: 15px;
+    min-height: 0;
+}
+
+window#waybar {
+    background-color: rgba(6, 8, 9, 0.8);
+    color: #F5F5DC;
+}
+
+#workspaces button {
+    background-color: transparent;
+    color: #F5F5DC;
+}
+
+#workspaces button:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+#workspaces button.active {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+#window {
+    color: #A8A0D8;  /* Lavender for icon */
+    min-width: 280px;
+}
+
+window#waybar.empty #window {
+    border: none;
+}
+
+#clock {
+    color: #F5F5DC;
+}
+#battery,
+#network,
+#tray {
+}
+
+#battery.charging {
+    color: #26A65B;
+}
+
+#battery.warning:not(.charging) {
+    color: #ffb86c;
+}
+
+#battery.critical:not(.charging) {
+    color: #ff5555;
+}
+
+/* Icon colors for modules - unified darker cyan */
+#battery,
+#bluetooth,
+#bluetooth.disabled,
+#bluetooth.off,
+#bluetooth.on,
+#bluetooth.connected,
+#bluetooth.discoverable,
+#bluetooth.discovering,
+#bluetooth.pairable,
+#bluetooth.no-controller,
+#network,
+#network.disabled,
+#network.disconnected,
+#network.linked,
+#network.ethernet,
+#network.wifi,
+#memory,
+#wireplumber,
+#wireplumber.muted,
+#wireplumber.sink-muted,
+#wireplumber.source-muted,
+#custom-battery-health,
+#custom-window-count {
+    color: #A8A0D8;  /* Lavender */
+}
+
+/* Keep warning/critical states for functional indicators */
+#memory.warning {
+    color: #FFB000;  /* Amber gold */
+}
+
+#memory.critical {
+    color: #ff5555;  /* Red */
+}
+
+#clock {
+    color: #F5F5DC;  /* Beige/creamier */
+}
